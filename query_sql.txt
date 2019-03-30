@@ -1,0 +1,39 @@
+create database StudentCourseDB
+go
+
+use StudentCourseDB
+
+
+CREATE TABLE Student
+(
+  Id INT NOT NULL,
+  FirstName VARCHAR(40) NOT NULL,
+  SurName VARCHAR(40) NOT NULL,
+  Gender CHAR(1) NOT NULL,
+  DOB DATE NOT NULL,
+  Address1 VARCHAR(100) NOT NULL,
+  Address2 VARCHAR(100),
+  Address3 VARCHAR(100),
+  PRIMARY KEY (Id)
+);
+
+CREATE TABLE Course
+(
+  Id INT NOT NULL,
+  Name VARCHAR(40) NOT NULL,
+  TecherName VARCHAR(40) NOT NULL,
+  StartDate DATE NOT NULL,
+  EndDate DATE NOT NULL,
+  PRIMARY KEY (Id)
+);
+
+CREATE TABLE Student_Course
+(
+  Id INT NOT NULL,
+  IdStudent INT NOT NULL,
+  IdCourse INT NOT NULL,
+  PRIMARY KEY (Id),
+  FOREIGN KEY (IdStudent) REFERENCES Course(Id),
+  FOREIGN KEY (IdCourse) REFERENCES Student(Id)
+);
+ 
