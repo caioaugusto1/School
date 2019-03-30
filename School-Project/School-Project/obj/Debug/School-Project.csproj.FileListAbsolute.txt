@@ -83,3 +83,13 @@ C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\b
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\EntityFramework.SqlServer.xml
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School_Project.Migrations.InitialDatabase.resources
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csproj.GenerateResource.cache
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csprojAssemblyReference.cache
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.dll
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.xml
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.Web.Common.dll
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.Web.Common.WebHost.dll
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.Web.Mvc.dll
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\WebActivatorEx.dll
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.Web.Common.xml
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.Web.Common.WebHost.xml
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.Web.Mvc.xml
