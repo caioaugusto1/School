@@ -73,8 +73,13 @@ C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\b
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csprojAssemblyReference.cache
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csproj.CoreCompileInputs.cache
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csproj.CopyComplete
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.dll
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.pdb
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\EntityFramework.dll
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\EntityFramework.SqlServer.dll
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\EntityFramework.xml
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\EntityFramework.SqlServer.xml
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School_Project.Migrations.InitialDatabase.resources
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csproj.GenerateResource.cache
