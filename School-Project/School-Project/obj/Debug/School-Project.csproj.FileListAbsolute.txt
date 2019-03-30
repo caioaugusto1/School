@@ -93,3 +93,8 @@ C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\b
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.Web.Common.xml
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.Web.Common.WebHost.xml
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.Web.Mvc.xml
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\AutoMapper.dll
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\System.ValueTuple.dll
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\AutoMapper.pdb
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\AutoMapper.xml
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\System.ValueTuple.xml

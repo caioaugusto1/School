@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace School_Project.ViewModels
+namespace School_Project.Models
 {
     public class StudentVM
     {

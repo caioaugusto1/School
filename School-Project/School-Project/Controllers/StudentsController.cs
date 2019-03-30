@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
+﻿using School_Project.BLL;
 using School_Project.Context;
 using School_Project.Entities;
 using School_Project.Repositories;
+using System;
+using System.Data.Entity;
+using System.Net;
+using System.Web.Mvc;
 
 namespace School_Project.Controllers
 {
@@ -16,17 +13,20 @@ namespace School_Project.Controllers
     {
         private StudentRepository _studentRepository;
 
+        private StudentBLL _studentBLL;
+
         private SchoolDBContext db = new SchoolDBContext();
 
-        public StudentsController(StudentRepository studentRepository)
+        public StudentsController(StudentBLL studentBLL, StudentRepository studentRepository)
         {
+            _studentBLL = studentBLL;
             _studentRepository = studentRepository;
         }
 
         // GET: Students
         public ActionResult Index()
         {
-            var students = _studentRepository.GetAll();
+            var students = _studentBLL.ListAll();
 
             return View(students);
         }
@@ -61,9 +61,7 @@ namespace School_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                student.Id = Guid.NewGuid();
-                db.Student.Add(student);
-                db.SaveChanges();
+                _studentBLL.Create(student);
                 return RedirectToAction("Index");
             }
 

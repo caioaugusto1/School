@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -67,6 +70,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -148,10 +154,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AutoMapper\AutoMapperConfig.cs" />
+    <Compile Include="AutoMapper\ConfigMappingProfile.cs" />
+    <Compile Include="BLL\CourseBLL.cs" />
+    <Compile Include="BLL\CourseStudentBLL.cs" />
+    <Compile Include="BLL\StudentBLL.cs" />
     <Compile Include="Context\EntitiesConfig\StudentEntityConfiguration.cs" />
     <Compile Include="Context\SchoolDBContext.cs" />
+    <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\StudentsCoursesController.cs" />
     <Compile Include="Entities\Course.cs" />
+    <Compile Include="Entities\CourseStudent.cs" />
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -163,12 +178,14 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CourseRepository.cs" />
+    <Compile Include="Repositories\CourseStudentRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICourseRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICourseStudentRepository.cs" />
     <Compile Include="Repositories\Interfaces\IStudentRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\StudentRepository.cs" />
-    <Compile Include="ViewModels\StudentVM.cs" />
+    <Compile Include="Models\StudentVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -211,10 +228,15 @@
     <Content Include="Views\Students\Details.cshtml" />
     <Content Include="Views\Students\Edit.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Delete.cshtml" />
+    <Content Include="Views\Courses\Details.cshtml" />
+    <Content Include="Views\Courses\Edit.cshtml" />
+    <Content Include="Views\Courses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\StudentsCourses\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
