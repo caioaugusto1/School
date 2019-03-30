@@ -17,10 +17,11 @@ namespace School_Project.Context.EntitiesConfig
 
             Property(p => p.Password)
                        .IsRequired()
-                       .HasMaxLength(40);
+                       .HasMaxLength(100);
 
             Property(p => p.Type)
                         .IsRequired()
+                        .HasColumnType("varchar")
                         .HasColumnOrder(1);
         }
     }

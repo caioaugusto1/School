@@ -81,8 +81,6 @@ C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\b
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\EntityFramework.SqlServer.dll
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\EntityFramework.xml
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\EntityFramework.SqlServer.xml
-C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School_Project.Migrations.InitialDatabase.resources
-C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csproj.GenerateResource.cache
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csprojAssemblyReference.cache
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.dll
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.xml
@@ -98,4 +96,5 @@ C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\b
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\AutoMapper.pdb
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\AutoMapper.xml
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\System.ValueTuple.xml
-C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School_Project.Migrations.AddLoginTable.resources
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School_Project.Migrations.InitialDatabase.resources
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csproj.GenerateResource.cache

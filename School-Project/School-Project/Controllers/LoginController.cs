@@ -20,14 +20,14 @@ namespace School_Project.Controllers
             return View();
         }
 
-        public ActionResult SingIn(string userName, string password)
+        public ActionResult SingIn(string username, string password)
         {
-            Login login = _loginBLL.SingIn(userName, password);
+            Login login = _loginBLL.SingIn(username, password);
 
             if (login == null)
                 throw new Exception("Incorret Username or password");
 
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Logout()

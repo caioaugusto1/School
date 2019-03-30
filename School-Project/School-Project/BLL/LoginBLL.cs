@@ -1,4 +1,5 @@
 ﻿using School_Project.Entities;
+using School_Project.Filters;
 using School_Project.Repositories;
 using System;
 using System.Text;
@@ -18,10 +19,13 @@ namespace School_Project.BLL
         {
             string criptoPassword = CriptoMd5(password);
 
-            Login login = _loginRepository.SingIn(username, password);
+            Login login = _loginRepository.SingIn(username, criptoPassword);
 
             if (login == null)
                 throw new Exception("Incorret Username or password");
+
+            SessionManager.AccountLogin = login;
+            System.Web.Security.FormsAuthentication.SetAuthCookie(login.UserName, true);
 
             return login;
         }

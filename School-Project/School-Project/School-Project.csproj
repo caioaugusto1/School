@@ -172,16 +172,15 @@
     <Compile Include="Entities\CourseStudent.cs" />
     <Compile Include="Entities\Login.cs" />
     <Compile Include="Entities\Student.cs" />
+    <Compile Include="Filters\AccessAutorization.cs" />
+    <Compile Include="Filters\AutorizationFilterAttribute.cs" />
+    <Compile Include="Filters\SessionManager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903301012540_InitialDatabase.cs" />
-    <Compile Include="Migrations\201903301012540_InitialDatabase.Designer.cs">
-      <DependentUpon>201903301012540_InitialDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903301424447_AddLoginTable.cs" />
-    <Compile Include="Migrations\201903301424447_AddLoginTable.Designer.cs">
-      <DependentUpon>201903301424447_AddLoginTable.cs</DependentUpon>
+    <Compile Include="Migrations\201903301614128_InitialDatabase.cs" />
+    <Compile Include="Migrations\201903301614128_InitialDatabase.Designer.cs">
+      <DependentUpon>201903301614128_InitialDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -265,11 +264,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903301012540_InitialDatabase.resx">
-      <DependentUpon>201903301012540_InitialDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903301424447_AddLoginTable.resx">
-      <DependentUpon>201903301424447_AddLoginTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903301614128_InitialDatabase.resx">
+      <DependentUpon>201903301614128_InitialDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

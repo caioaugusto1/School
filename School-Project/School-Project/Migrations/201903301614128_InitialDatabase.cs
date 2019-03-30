@@ -34,6 +34,17 @@ namespace School_Project.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.Login",
+                c => new
+                    {
+                        Type = c.String(nullable: false, maxLength: 8000, unicode: false),
+                        Id = c.Guid(nullable: false),
+                        UserName = c.String(nullable: false, maxLength: 40),
+                        Password = c.String(nullable: false, maxLength: 100),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.CourseStudents",
                 c => new
                     {
@@ -55,6 +66,7 @@ namespace School_Project.Migrations
             DropIndex("dbo.CourseStudents", new[] { "Student_Id" });
             DropIndex("dbo.CourseStudents", new[] { "Course_Id" });
             DropTable("dbo.CourseStudents");
+            DropTable("dbo.Login");
             DropTable("dbo.Students");
             DropTable("dbo.Courses");
         }
