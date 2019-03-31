@@ -81,7 +81,6 @@ C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\b
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\EntityFramework.SqlServer.dll
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\EntityFramework.xml
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\EntityFramework.SqlServer.xml
-C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csprojAssemblyReference.cache
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.dll
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.xml
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\bin\Ninject.Web.Common.dll

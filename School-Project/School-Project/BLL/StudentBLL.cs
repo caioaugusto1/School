@@ -29,5 +29,10 @@ namespace School_Project.BLL
         {
             return _studentRepository.GetAll();
         }
+
+        public Student GetById(Guid id)
+        {
+            return _studentRepository.GetById(id);
+        }
     }
 }

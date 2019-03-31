@@ -1,0 +1,48 @@
+﻿@model School_Project.Models.StudentsCourses.ListCoursesAvaliableVM
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SurName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var course in Model.Courses)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => course.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => course.TeacherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => course.NumberVacancies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => course.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => course.EndDate)
+            </td>
+            <td>
+                @Html.ActionLink("Inclued", "LinkCourseToStudent", "StudentsCourses", new { idStudent = Model.Id, idCourse = course.Id }) |
+                @Html.ActionLink("Remove", "Delete", new { idStudent = Model.Id, idCourse = course.Id })
+            </td>
+        </tr>
+    }
+
+</table>

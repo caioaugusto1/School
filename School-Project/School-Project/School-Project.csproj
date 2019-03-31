@@ -184,9 +184,11 @@
       <DependentUpon>201903311528286_InitialDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Courses\CourseVM.cs" />
     <Compile Include="Models\Login\CreateLoginVM.cs" />
     <Compile Include="Models\Login\LoginBaseVM.cs" />
-    <Compile Include="Models\StudentsCourses\LinkCourseManyStudents.cs" />
+    <Compile Include="Models\StudentsCourses\ListCourseManyStudentsVM.cs" />
+    <Compile Include="Models\StudentsCourses\ListCoursesAvaliableVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CourseRepository.cs" />
     <Compile Include="Repositories\CourseStudentRepository.cs" />
@@ -256,6 +258,7 @@
     <Content Include="Views\Login\Create.cshtml" />
     <Content Include="Views\CoursesStudents\ListStudentsByCourse.cshtml" />
     <Content Include="Views\CoursesStudents\ListStudentsAvaliable.cshtml" />
+    <Content Include="Views\CoursesStudents\ListCoursesAvaliableByStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

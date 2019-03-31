@@ -23,14 +23,17 @@ namespace School_Project.BLL
         
         public List<Course> ListAll()
         {
-            var sss = _courseRepository.GetAll();
-            
             return _courseRepository.GetAll();
         }
 
         public Course GetById(Guid idCourse)
         {
             return _courseRepository.GetById(idCourse);
+        }
+
+        public List<Course> GetCoursesAvaliable()
+        {
+            return _courseRepository.GetAvaliable();
         }
     }
 }

@@ -51,6 +51,16 @@ namespace School_Project.Controllers
             return View("ListStudentsAvaliable");
         }
 
+        public ActionResult ListCoursesAvaliableByStudent(Guid id)
+        {
+            Student student = _studantsBLL.GetById(id);
+            List<Course> courses = _courseBLL.GetCoursesAvaliable();
+
+            ListCoursesAvaliableVM listCoursesAvaliableVM = new ListCoursesAvaliableVM(student, courses);
+
+            return View("ListCoursesAvaliableByStudent", listCoursesAvaliableVM);
+        }
+
         [HttpPost]
         public ActionResult LinkCourseManyStudents(Guid idCourse, Guid idStudent)
         {
