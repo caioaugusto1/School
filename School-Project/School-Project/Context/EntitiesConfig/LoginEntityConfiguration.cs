@@ -9,17 +9,17 @@ namespace School_Project.Context.EntitiesConfig
         {
             ToTable("Login");
 
-            HasKey(s => s.Id);
+            HasKey(l => l.Id);
 
-            Property(p => p.UserName)
+            Property(l => l.UserName)
                         .IsRequired()
                         .HasMaxLength(40);
 
-            Property(p => p.Password)
+            Property(l => l.Password)
                        .IsRequired()
                        .HasMaxLength(100);
 
-            Property(p => p.Type)
+            Property(l => l.Type)
                         .IsRequired()
                         .HasColumnType("varchar")
                         .HasColumnOrder(1);

@@ -1,5 +1,4 @@
-﻿using School_Project.Enum;
-using System;
+﻿using System;
 
 namespace School_Project.Entities
 {
@@ -12,5 +11,9 @@ namespace School_Project.Entities
         public string Password { get; set; }
 
         public string Type { get; set; }
+
+        //public Guid IdStudent { get; set; }
+
+        //public virtual Student Student { get; set; }
     }
 }

@@ -15,8 +15,8 @@ namespace School_Project.Controllers
 
         private StudentBLL _studantsBLL;
 
-        public CoursesStudentsController(CourseStudentBLL courseStudentBLL, CourseBLL courseBLL,
-            StudentBLL studantsBLL)
+        public CoursesStudentsController(CourseStudentBLL courseStudentBLL, 
+            CourseBLL courseBLL, StudentBLL studantsBLL)
         {
             _courseStudentBLL = courseStudentBLL;
             _courseBLL = courseBLL;
@@ -59,19 +59,7 @@ namespace School_Project.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult LinkCourseToStudent(Guid idCourse, Guid idStudent)
-        //{
-        //    Course course = _courseBLL.GetById(idCourse);
-        //    List<Student> studentsList = _studantsBLL.GetStudentsAvaliable();
-
-        //    ListCourseManyStudentsVM listCourseManyStudentsVMs = new ListCourseManyStudentsVM(course, studentsList);
-
-        //    return View("ListCourseManyStudents", listCourseManyStudentsVMs);
-        //}
-
         #endregion
-
 
         #region Courses
 

@@ -1,6 +1,7 @@
 ﻿using School_Project.BLL;
 using School_Project.Context;
 using School_Project.Entities;
+using School_Project.Filters;
 using School_Project.Repositories;
 using System;
 using System.Data.Entity;
@@ -9,18 +10,16 @@ using System.Web.Mvc;
 
 namespace School_Project.Controllers
 {
+    [AutorizationFilter]
     public class CoursesController : Controller
     {
         private CourseBLL _courseBLL;
-
-        private CourseRepository _courseRepository;
-
+        
         private SchoolDBContext db = new SchoolDBContext();
 
-        public CoursesController(CourseBLL courseBLL, CourseRepository studentRepository)
+        public CoursesController(CourseBLL courseBLL)
         {
             _courseBLL = courseBLL;
-            _courseRepository = studentRepository;
         }
 
         // GET: Courses

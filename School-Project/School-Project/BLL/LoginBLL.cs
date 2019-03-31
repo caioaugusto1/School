@@ -28,7 +28,7 @@ namespace School_Project.BLL
 
             SessionManager.AccountLogin = login;
             System.Web.Security.FormsAuthentication.SetAuthCookie(login.UserName, true);
-
+            
             return login;
         }
 

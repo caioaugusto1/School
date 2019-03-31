@@ -11,16 +11,13 @@ namespace School_Project.Controllers
 {
     public class StudentsController : Controller
     {
-        private StudentRepository _studentRepository;
-
         private StudentBLL _studentBLL;
 
         private SchoolDBContext db = new SchoolDBContext();
 
-        public StudentsController(StudentBLL studentBLL, StudentRepository studentRepository)
+        public StudentsController(StudentBLL studentBLL)
         {
             _studentBLL = studentBLL;
-            _studentRepository = studentRepository;
         }
 
         // GET: Students

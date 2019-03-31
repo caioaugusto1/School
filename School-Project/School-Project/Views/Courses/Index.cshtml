@@ -1,53 +1,86 @@
 ﻿@model IEnumerable<School_Project.Entities.Course>
 
-@{
-    ViewBag.Title = "Index";
-}
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
 
-<h2>Index</h2>
+<br />
+<a href="/Courses/Create" class="btn-success btn-sm">+ Include Course</a>
+<br />
+<br />
 
-<p>
-    @Html.ActionLink("Insert more Students", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TeacherName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
+<table id="datatable" class="display" style="width:100%">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeacherName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                <a href="/CoursesStudents/ListStudentsAvaliableIncluedInCourse/@item.Id">Link Student</a>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
+            <th>
+                Name
+            </th>
+            <th>
+                Teacher Name
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Actions
+            </th>
         </tr>
-    }
+    </thead>
 
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeacherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    <a href="/CoursesStudents/ListStudentsAvaliableIncluedInCourse/@item.Id" class="btn btn-primary btn-sm">Link Student</a>
+                    <a href="/Courses/Edit/@item.Id" class="btn btn-secondary btn-sm">Edit</a>
+                    <a href="/Courses/Details/@item.Id" class="btn btn-info btn-sm">Details</a>
+                    <a href="/Courses/Delete/@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Teacher Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
 </table>
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Utils/Utils.js"></script>
+    <script type="text/javascript" src="~/Scripts/CoursesStudents/CoursesStudents.js"></script>
+    <script type="text/javascript">
+
+
+        $(function () {
+
+            $('#datatable').DataTable();
+
+            Util();
+            coursesStudents();
+            coursesStudents.dataTables();
+        });
+
+    </script>
+}
