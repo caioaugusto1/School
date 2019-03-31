@@ -55,5 +55,20 @@ namespace School_Project.BLL
 
             return true;
         }
+
+        public bool RemoveLinkCourseToStudent(Guid idStudent, Guid idCourse)
+        {
+            Course course = _courseRepository.GetById(idCourse);
+            Student student = _studentRepository.GetById(idStudent);
+
+            if (course == null || student == null)
+                return false;
+
+            course.Students.Remove(student);
+
+            _courseRepository.Update(course, idCourse);
+
+            return true;
+        }
     }
 }

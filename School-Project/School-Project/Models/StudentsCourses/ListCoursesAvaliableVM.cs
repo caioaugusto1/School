@@ -2,6 +2,7 @@
 using School_Project.Models.Courses;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace School_Project.Models.StudentsCourses
 {
@@ -15,7 +16,12 @@ namespace School_Project.Models.StudentsCourses
 
         public string DOB { get; set; }
 
-        public List<CourseVM> CoursesVM { get; set; }
+        public List<StudentCourseVM> CoursesVM { get; set; }
+
+        public class StudentCourseVM : CourseVM
+        {
+            public bool StudentIncluedInCourse { get; set; }
+        }
 
         public ListCoursesAvaliableVM(Student student, List<Course> courses)
         {
@@ -24,18 +30,19 @@ namespace School_Project.Models.StudentsCourses
             SurName = student.SurName;
             DOB = student.DOB.ToString();
 
-            CoursesVM = new List<CourseVM>();
+            CoursesVM = new List<StudentCourseVM>();
 
             courses.ForEach(course =>
             {
-                CoursesVM.Add(new CourseVM()
+                CoursesVM.Add(new StudentCourseVM()
                 {
                     Id = course.Id,
                     Name = course.Name,
                     StartDate = course.StartDate.ToString(),
                     EndDate = course.EndDate.ToString(),
                     NumberVacancies = course.NumberVacancies.ToString(),
-                    TeacherName = course.TeacherName
+                    TeacherName = course.TeacherName,
+                    StudentIncluedInCourse = student.Courses.Any(sc => sc.Id == course.Id) ? false : true
                 });
             });
         }

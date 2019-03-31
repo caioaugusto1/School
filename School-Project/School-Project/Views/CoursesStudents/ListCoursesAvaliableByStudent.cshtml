@@ -20,7 +20,7 @@
         <th></th>
     </tr>
 
-    @foreach (var course in Model.Courses)
+    @foreach (var course in Model.CoursesVM)
     {
         <tr>
             <td>
@@ -39,10 +39,25 @@
                 @Html.DisplayFor(modelItem => course.EndDate)
             </td>
             <td>
-                @Html.ActionLink("Inclued", "LinkCourseToStudent", "StudentsCourses", new { idStudent = Model.Id, idCourse = course.Id }) |
-                @Html.ActionLink("Remove", "Delete", new { idStudent = Model.Id, idCourse = course.Id })
+
+                @if (course.StudentIncluedInCourse)
+                {
+                    <button type="button" class="btn btn-success" onclick="coursesStudents.includedStudentOneCourse('@Model.IdStudent', '@course.Id')">Sing in</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-danger" onclick="coursesStudents.removeStudentOneCourse('@Model.IdStudent', '@course.Id')">Remove</button>
+                }
             </td>
         </tr>
     }
 
 </table>
+
+<script src="~/Scripts/Utils/Utils.js"></script>
+<script src="~/Scripts/CoursesStudents/LinkCourseManyStudents.js"></script>
+<script type="text/javascript">
+
+    Util();
+    coursesStudents();
+</script>

@@ -62,6 +62,22 @@ namespace School_Project.Controllers
         }
 
         [HttpPost]
+        public ActionResult LinkStudentToCourse(Guid idCourse, Guid idStudent)
+        {
+            _courseStudentBLL.CreateLinkCourseToStudent(idStudent, idCourse);
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RemoveLonkStudentToCourse(Guid idCourse, Guid idStudent)
+        {
+            _courseStudentBLL.RemoveLinkCourseToStudent(idStudent, idCourse);
+
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult LinkCourseManyStudents(Guid idCourse, Guid idStudent)
         {
             return View();

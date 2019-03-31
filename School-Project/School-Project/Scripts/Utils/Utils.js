@@ -5,14 +5,16 @@
         $.ajax({
             url: endpoint,
             type: type,
-            cache: false,
-            param: param,
             dataType: dataType,
+            cache: false,
+            data: param,
             success: function (data) {
                 callbackSuccess(data);
             }, error: function (request, status, error) {
 
-            };
+            }
         });
     };
-}
+
+    return { request }
+}();

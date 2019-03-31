@@ -54,6 +54,7 @@ namespace School_Project.Repositories
         public void Update(TEntity obj, Guid id)
         {
             _schoolDBContext.Entry(obj).State = EntityState.Modified;
+            Save();
         }
     }
 }
