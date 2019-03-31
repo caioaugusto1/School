@@ -24,6 +24,8 @@ namespace School_Project.Context
 
         public virtual DbSet<Student> Student { get; set; }
 
+        public virtual DbSet<CourseStudent> CourseStudents { get; set; }
+
         public virtual DbSet<Course> Course { get; set; }
 
         public virtual DbSet<Login> Login { get; set; }
