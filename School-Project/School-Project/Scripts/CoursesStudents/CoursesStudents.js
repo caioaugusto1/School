@@ -27,7 +27,12 @@
         });
     }
 
+    var dataTables = function () {
+        $(document).ready(function () {
+            $('#data-table').DataTable();
+        });
+    };
 
-    return { includedStudentOneCourse, removeStudentOneCourse, includedCourseOneStudent, removeCourseOneStudent }
+    return { includedStudentOneCourse, removeStudentOneCourse, includedCourseOneStudent, removeCourseOneStudent, dataTables }
 }();
 

@@ -1,68 +1,97 @@
 ﻿@model School_Project.Models.StudentsCourses.ListCoursesAvaliableVM
 
-@{
-    ViewBag.Title = "Index";
-}
 
-<h2>Index</h2>
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SurName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DOB)
-        </th>
-        <th></th>
-    </tr>
+<br />
+<br />
 
-    @foreach (var course in Model.CoursesVM)
-    {
+<table id="datatable" class="display" style="width:100%">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => course.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => course.TeacherName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => course.NumberVacancies)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => course.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => course.EndDate)
-            </td>
-            <td>
-
-                @if (course.StudentIncluedInCourse)
-                {
-                    <button type="button" class="btn btn-success" onclick="coursesStudents.includedStudentOneCourse('@Model.IdStudent', '@course.Id')">Sing in</button>
-                }
-                else
-                {
-                    <button type="button" class="btn btn-danger" onclick="coursesStudents.removeStudentOneCourse('@Model.IdStudent', '@course.Id')">Remove</button>
-                }
-            </td>
+            <th>
+                Course Name
+            </th>
+            <th>
+                Teacher Name
+            </th>
+            <th>
+                Vacancies Number
+            </th>
+            <th style="width: 25%">
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Actions
+            </th>
         </tr>
-    }
+    </thead>
 
+    <tbody>
+        @foreach (var course in Model.CoursesVM)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => course.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => course.TeacherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => course.NumberVacancies)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => course.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => course.EndDate)
+                </td>
+                <td>
+
+                    @if (course.StudentIncluedInCourse)
+                    {
+                        <button type="button" class="btn btn-success btn-sm" onclick="coursesStudents.includedStudentOneCourse('@Model.IdStudent', '@course.Id')">Join</button>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn btn-danger btn-sm" onclick="coursesStudents.removeStudentOneCourse('@Model.IdStudent', '@course.Id')">Remove</button>
+                    }
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Course Name</th>
+            <th>Teacher Name</th>
+            <th>Vacancies Number</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
 </table>
 
+<a href="/Students/Index" class="btn-warning btn-sm">< Back to List</a>
 
-<script type="text/javascript" src="~/Scripts/Utils/Utils.js"></script>
-<script type="text/javascript" src="~/Scripts/CoursesStudents/LinkCourseManyStudents.js"></script>
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Utils/Utils.js"></script>
+    <script type="text/javascript" src="~/Scripts/CoursesStudents/CoursesStudents.js"></script>
+    <script type="text/javascript">
 
-<script type="text/javascript">
 
-    $(function () {
-        Util();
-        coursesStudents();
-    });
+        $(function () {
 
-</script>
+            $('#datatable').DataTable();
+
+            Util();
+            coursesStudents();
+        });
+
+    </script>
+}

@@ -1,65 +1,87 @@
 ﻿@model IEnumerable<School_Project.Entities.Student>
 
-@{
-    ViewBag.Title = "Index";
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<br />
+<a href="/Students/Create" class="btn-success btn-sm">+ Include Student</a>
+<br />
+<br />
+
+
+<table id="datatable" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Surname
+            </th>
+            <th>
+                Date of Birthday
+            </th>
+            <th style="width: 25%">
+                Address
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address1)
+                </td>
+                <td>
+                    <a href="/CoursesStudents/ListCoursesAvaliableByStudent/@item.Id" class="btn btn-primary btn-sm">Link Student</a>
+                    <a href="/Students/Edit/@item.Id" class="btn btn-secondary btn-sm">Edit</a>
+                    <a href="/Students/Details/@item.Id" class="btn btn-info btn-sm">Details</a>
+                    <a href="/Students/Delete/@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>Date of Birthday</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+    </tfoot>
+</table>
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Utils/Utils.js"></script>
+    <script type="text/javascript" src="~/Scripts/CoursesStudents/CoursesStudents.js"></script>
+    <script type="text/javascript">
+
+
+        $(function () {
+
+            $('#datatable').DataTable();
+
+            Util();
+            coursesStudents();
+            coursesStudents.dataTables();
+        });
+
+    </script>
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SurName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DOB)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address3)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SurName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DOB)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address3)
-            </td>
-            <td>
-                <a href="/CoursesStudents/ListCoursesAvaliableByStudent/@item.Id">Link Student</a> |
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-
-</table>

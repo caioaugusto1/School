@@ -1,10 +1,12 @@
 ﻿@model School_Project.Models.StudentsCourses.ListCourseManyStudentsVM
 
+<link href="~/Content/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<table class="table">
+<table id="data-tables" class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -53,14 +55,16 @@
     }
 </table>
 
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="~/Scripts/Utils/Utils.js"></script>
-<script type="text/javascript" src="~/Scripts/CoursesStudents/LinkCourseManyStudents.js"></script>
-
+<script type="text/javascript" src="~/Scripts/CoursesStudents/CoursesStudents.js"></script>
 <script type="text/javascript">
 
     $(function () {
         Util();
         coursesStudents();
+        coursesStudents.dataTables();
     });
 
 </script>
