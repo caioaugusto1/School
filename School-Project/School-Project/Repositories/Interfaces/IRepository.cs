@@ -6,7 +6,7 @@ namespace School_Project.Repositories.Interfaces
     public interface IRepository<TEntity> where TEntity : class
     {
         List<TEntity> GetAll();
-
+        
         TEntity GetById(Guid id);
 
         void Insert(TEntity obj);

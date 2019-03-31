@@ -1,9 +1,8 @@
 ﻿using School_Project.BLL;
+using School_Project.Entities;
 using School_Project.Models.StudentsCourses;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace School_Project.Controllers
@@ -12,9 +11,16 @@ namespace School_Project.Controllers
     {
         private CourseStudentBLL _courseStudentBLL;
 
-        public CoursesStudentsController(CourseStudentBLL courseStudentBLL)
+        private CourseBLL _courseBLL;
+
+        private StudentBLL _studantsBLL;
+
+        public CoursesStudentsController(CourseStudentBLL courseStudentBLL, CourseBLL courseBLL,
+            StudentBLL studantsBLL)
         {
             _courseStudentBLL = courseStudentBLL;
+            _courseBLL = courseBLL;
+            _studantsBLL = studantsBLL;
         }
 
         // GET: StudentsCourses
@@ -23,9 +29,26 @@ namespace School_Project.Controllers
             return View();
         }
 
-        public ActionResult LinkCourseManyStudents(Guid id)
+        public ActionResult ListStudentsByCourse(Guid id)
         {
-            return View(_courseStudentBLL.OneCourseManyStudent(id));
+            ListCourseManyStudentsVM listCourseManyStudentsVM = _courseStudentBLL.OneCourseManyStudent(id);
+
+            return View("ListStudentsByCourse", listCourseManyStudentsVM);
+        }
+
+        public ActionResult ListStudentsAvaliableIncluedInCourse(Guid idCourse)
+        {
+            Course course = _courseBLL.GetById(idCourse);
+            List<Student> students = _studantsBLL.ListStudentsAvaliable();
+
+            ListCourseManyStudentsVM listCourseManyStudentsVM = new ListCourseManyStudentsVM(course, students);
+
+            return View("ListStudentsAvaliable", listCourseManyStudentsVM);
+        }
+
+        public ActionResult ListStudantsAvaliable()
+        {
+            return View("ListStudentsAvaliable");
         }
 
         [HttpPost]

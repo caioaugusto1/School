@@ -15,12 +15,14 @@ namespace School_Project.Repositories
 
         public List<CourseStudent> FindByIdStudent(Guid idStudent)
         {
-            return _schoolDBContext.CourseStudents.Where(l => l.IdStudent == idStudent).ToList();
+            return new List<CourseStudent>();
+            //return _schoolDBContext.CourseStudents.Where(l => l.IdStudent == idStudent).ToList();
         }
 
         public List<CourseStudent> GetStudentsByIdCourse(Guid idCourse)
         {
-            return _schoolDBContext.CourseStudents.Where(l => l.IdCourse == idCourse).ToList();
+            return new List<CourseStudent>();
+            //return _schoolDBContext.CourseStudents.Where(l => l.IdCourse == idCourse).ToList();
         }
     }
 }

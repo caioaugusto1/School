@@ -179,13 +179,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903301614128_InitialDatabase.cs" />
-    <Compile Include="Migrations\201903301614128_InitialDatabase.Designer.cs">
-      <DependentUpon>201903301614128_InitialDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903310945292_IncludedColumnNumberVacancies.cs" />
-    <Compile Include="Migrations\201903310945292_IncludedColumnNumberVacancies.Designer.cs">
-      <DependentUpon>201903310945292_IncludedColumnNumberVacancies.cs</DependentUpon>
+    <Compile Include="Migrations\201903311528286_InitialDatabase.cs" />
+    <Compile Include="Migrations\201903311528286_InitialDatabase.Designer.cs">
+      <DependentUpon>201903311528286_InitialDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Login\CreateLoginVM.cs" />
@@ -258,6 +254,8 @@
     <Content Include="Views\CoursesStudents\View.cshtml" />
     <Content Include="Views\CoursesStudents\LinkCourseManyStudents.cshtml" />
     <Content Include="Views\Login\Create.cshtml" />
+    <Content Include="Views\CoursesStudents\ListStudentsByCourse.cshtml" />
+    <Content Include="Views\CoursesStudents\ListStudentsAvaliable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,11 +274,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903301614128_InitialDatabase.resx">
-      <DependentUpon>201903301614128_InitialDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903310945292_IncludedColumnNumberVacancies.resx">
-      <DependentUpon>201903310945292_IncludedColumnNumberVacancies.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903311528286_InitialDatabase.resx">
+      <DependentUpon>201903311528286_InitialDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

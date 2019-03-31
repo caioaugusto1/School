@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace School_Project.Entities
@@ -10,5 +11,9 @@ namespace School_Project.Entities
 
         [NotMapped]
         public Guid IdCourse { get; set; }
+
+        //public virtual List<Student> Students { get; set; }
+
+        //public virtual List<Course> Courses { get; set; }
     }
 }

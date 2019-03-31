@@ -20,12 +20,17 @@ namespace School_Project.BLL
 
             _courseRepository.Insert(course);
         }
-
+        
         public List<Course> ListAll()
         {
             var sss = _courseRepository.GetAll();
             
             return _courseRepository.GetAll();
+        }
+
+        public Course GetById(Guid idCourse)
+        {
+            return _courseRepository.GetById(idCourse);
         }
     }
 }

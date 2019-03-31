@@ -2,6 +2,8 @@
 using School_Project.Models.StudentsCourses;
 using School_Project.Repositories;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace School_Project.BLL
 {
@@ -22,23 +24,36 @@ namespace School_Project.BLL
             _studentRepository = studentRepository;
         }
 
-        public LinkCourseManyStudentsVM OneCourseManyStudent(Guid idCourse)
+        public List<Student> GetStudentsAvaliable()
+        {
+            return _studentRepository.GetAllAvaliable();
+        }
+
+        public ListCourseManyStudentsVM OneCourseManyStudent(Guid idCourse)
         {
             Course courses = _courseRepository.GetById(idCourse);
 
-            LinkCourseManyStudentsVM linkCourseManyStudentsVM = new LinkCourseManyStudentsVM(courses);
+            ListCourseManyStudentsVM linkCourseManyStudentsVM = new ListCourseManyStudentsVM(courses);
 
             return linkCourseManyStudentsVM;
         }
-        
-        public void CreateLinkCourseToStudent(Guid idStudent, Guid idCourse)
+
+        public bool CreateLinkCourseToStudent(Guid idStudent, Guid idCourse)
         {
-            CourseStudent courses = _courseStudentRepository.GetById(idStudent);
+            Course course = _courseRepository.GetById(idCourse);
+            Student student = _studentRepository.GetById(idStudent);
 
-            if (courses != null)
-            {
+            if (course == null || student == null)
+                return false;
 
-            }
+            if (student.Courses.Count >= 5)
+                return false;
+
+            course.Students.Add(student);
+
+            _courseRepository.Update(course, idCourse);
+
+            return true;
         }
     }
 }

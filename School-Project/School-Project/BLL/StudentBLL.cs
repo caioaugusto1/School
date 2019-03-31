@@ -17,15 +17,16 @@ namespace School_Project.BLL
         public void Create(Student student)
         {
             student.Id = Guid.NewGuid();
-
             _studentRepository.Insert(student);
         }
 
         public List<Student> ListAll()
         {
-            var sss = _studentRepository.GetAll();
+            return _studentRepository.GetAll();
+        }
 
-
+        public List<Student> ListStudentsAvaliable()
+        {
             return _studentRepository.GetAll();
         }
     }

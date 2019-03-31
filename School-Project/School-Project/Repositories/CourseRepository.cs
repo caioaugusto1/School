@@ -16,9 +16,8 @@ namespace School_Project.Repositories
 
         public List<Course> GetAvaliable()
         {
-            _schoolDBContext.Course.Where(c => c.StartDate == DateTime.Now);
-
-            return new List<Course>();
+            return(_schoolDBContext.Course.Where(c => c.StartDate == DateTime.Now)).ToList();
+            
         }
 
         public List<Course> GetNotAvaliable()

@@ -14,6 +14,7 @@ namespace School_Project.Migrations
                         Id = c.Guid(nullable: false),
                         Name = c.String(),
                         TeacherName = c.String(),
+                        NumberVacancies = c.Int(nullable: false),
                         StartDate = c.DateTime(nullable: false),
                         EndDate = c.DateTime(nullable: false),
                     })
