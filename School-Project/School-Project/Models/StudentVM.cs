@@ -5,6 +5,8 @@ namespace School_Project.Models
 {
     public class StudentVM
     {
+        public string Id { get; set; }
+
         [Required(ErrorMessage = "First Name")]
         [StringLength(40, MinimumLength = 2)]
         public string FirstName { get; set; }
@@ -14,13 +16,12 @@ namespace School_Project.Models
         public string SurName { get; set; }
 
         [Required(ErrorMessage = "Gender")]
-        public Gender Gender { get; set; }
+        public char Gender { get; set; }
 
-        [Required(ErrorMessage = "Gender")]
-        [StringLength(40, MinimumLength = 2)]
-        public DateTime DOB { get; set; }
+        [Required(ErrorMessage = "DOB")]
+        public string DOB { get; set; }
 
-        [Required(ErrorMessage = "Gender")]
+        [Required(ErrorMessage = "Address1")]
         public string Address1 { get; set; }
 
         public string Address2 { get; set; }

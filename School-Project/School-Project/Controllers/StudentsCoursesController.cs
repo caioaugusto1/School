@@ -1,4 +1,6 @@
-﻿using System;
+﻿using School_Project.BLL;
+using School_Project.Models.StudentsCourses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,27 +8,45 @@ using System.Web.Mvc;
 
 namespace School_Project.Controllers
 {
-    public class StudentsCoursesController : Controller
+    public class CoursesStudentsController : Controller
     {
+        private CourseStudentBLL _courseStudentBLL;
+
+        public CoursesStudentsController(CourseStudentBLL courseStudentBLL)
+        {
+            _courseStudentBLL = courseStudentBLL;
+        }
+
         // GET: StudentsCourses
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: StudentsCourses/Details/5
+        public ActionResult LinkCourseManyStudents(Guid id)
+        {
+            return View(_courseStudentBLL.OneCourseManyStudent(id));
+        }
+
+        [HttpPost]
+        public ActionResult LinkCourseManyStudents(Guid idCourse, Guid idStudent)
+        {
+            return View();
+        }
+
+        // GET: CourseStudent/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: StudentsCourses/Create
+        // GET: CourseStudent/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: StudentsCourses/Create
+        // POST: CourseStudent/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -42,13 +62,13 @@ namespace School_Project.Controllers
             }
         }
 
-        // GET: StudentsCourses/Edit/5
+        // GET: CourseStudent/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: StudentsCourses/Edit/5
+        // POST: CourseStudent/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -64,13 +84,13 @@ namespace School_Project.Controllers
             }
         }
 
-        // GET: StudentsCourses/Delete/5
+        // GET: CourseStudent/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: StudentsCourses/Delete/5
+        // POST: CourseStudent/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

@@ -8,7 +8,7 @@ namespace School_Project.AutoMapper
         {
             Mapper.Initialize(x =>
             {
-                x.AddProfile<ConfigMappingProfile>();
+                x.AddProfile<MappingProfile>();
             });
         }
     }

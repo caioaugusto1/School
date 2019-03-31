@@ -1,5 +1,6 @@
 ﻿using School_Project.BLL;
 using School_Project.Entities;
+using School_Project.Models.Login;
 using System;
 using System.Web.Mvc;
 
@@ -30,11 +31,31 @@ namespace School_Project.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+
         public ActionResult Logout()
         {
             Session.Abandon();
             Session.RemoveAll();
             return View("Index");
+        }
+
+        // POST: Login/Create
+        [HttpPost]
+        public ActionResult Create(CreateLoginVM newLogin)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _loginBLL.CreateLogin(newLogin);
+                }
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
         }
 
         // GET: Login/Details/5
@@ -47,22 +68,6 @@ namespace School_Project.Controllers
         public ActionResult Create()
         {
             return View();
-        }
-
-        // POST: Login/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         // GET: Login/Edit/5

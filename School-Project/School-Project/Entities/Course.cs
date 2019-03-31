@@ -11,6 +11,8 @@ namespace School_Project.Entities
 
         public string TeacherName { get; set; }
 
+        public int NumberVacancies { get; set; }
+
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }

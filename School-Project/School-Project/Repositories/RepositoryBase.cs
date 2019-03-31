@@ -28,7 +28,7 @@ namespace School_Project.Repositories
 
         public TEntity GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return _schoolDBContext.Set<TEntity>().Find(id);
         }
 
         public void Insert(TEntity obj)

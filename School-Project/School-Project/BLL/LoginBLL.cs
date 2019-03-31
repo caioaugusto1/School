@@ -1,5 +1,7 @@
-﻿using School_Project.Entities;
+﻿using AutoMapper;
+using School_Project.Entities;
 using School_Project.Filters;
+using School_Project.Models.Login;
 using School_Project.Repositories;
 using System;
 using System.Text;
@@ -28,6 +30,22 @@ namespace School_Project.BLL
             System.Web.Security.FormsAuthentication.SetAuthCookie(login.UserName, true);
 
             return login;
+        }
+
+        public Login CreateLogin(CreateLoginVM newLogin)
+        {
+            Login validationLogin = _loginRepository.GetUserName(newLogin.UserName);
+
+            if (validationLogin != null)
+                return null;
+
+            Login login = Mapper.Map<CreateLoginVM, Login>(newLogin);
+
+            login.Password = CriptoMd5(login.Password);
+
+            _loginRepository.Insert(login);
+
+            return new Login();
         }
 
         private string CriptoMd5(string password)

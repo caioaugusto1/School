@@ -4,53 +4,35 @@
     Layout = string.Empty;
 }
 
+<link href="~/Content/login-theme.css" rel="stylesheet" type="text/css" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <head>
     <title>SingIn - School</title>
-
-    @*<link href="~/Content/login-theme.css" />
-
-        <script src="~/Scripts/jquery.validate.min.js"></script>
-        <script src="~/Scripts/login-theme.js"></script>
-
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>*@
-    @*<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />*@
-
-    @*@{
-            Html.RenderPartial("_partial/_cabecalho_princp");
-        }*@
-
 </head>
 
-<div class="text-center" style="padding:5% 0">
-    <div class="logo">login</div>
-    <!-- Main Form -->
-    <div class="login-form-1">
-        @using (Html.BeginForm("SingIn", "Login", FormMethod.Post, new { @id = "login-form", @class = "text-left" }))
-        {
-            <div class="login-form-main-message"></div>
-            <div class="main-login-form">
-                <div class="login-group">
-                    <div class="form-group">
-                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @placeholder = "username", @id = "lg_username", @for = "lg_username", @class = "sr-only form-control" } })
-                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12 col-sm-12">
-                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "password", id = "lg_password",
-                           @for = "lg_password", @class = "sr-only form-control", @type = "password" } })
-                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group login-group-checkbox">
-                        <label for="lg_remember">remember</label>
-                    </div>
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h3>Sing in</h3>
+            @using (Html.BeginForm("SingIn", "Login", FormMethod.Post, new { @id = "login-form", @class = "text-left" }))
+            {
+                <div class="form-group">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @placeholder = "Your User Name *",
+                            @class = "form-control", @type = "Your User Name *" } })
                 </div>
-                <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-            </div>
-        }
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @placeholder = "Your Password *",
+                            @class = "form-control", @type = "password" } })
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Login" />
+                </div>
+            }
+        </div>
     </div>
 </div>
+
+

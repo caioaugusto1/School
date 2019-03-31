@@ -1,4 +1,5 @@
-﻿using System;
+﻿using School_Project.Enum;
+using System;
 
 namespace School_Project.Entities
 {
@@ -9,13 +10,7 @@ namespace School_Project.Entities
         public string UserName { get; set; }
 
         public string Password { get; set; }
-        
-        public string Type { get; set; }
-    }
 
-    public enum Type
-    {
-        Admin = 'A',
-        Student = 'T'
+        public string Type { get; set; }
     }
 }

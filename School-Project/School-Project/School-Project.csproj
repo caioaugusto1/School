@@ -155,7 +155,7 @@
     <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
-    <Compile Include="AutoMapper\ConfigMappingProfile.cs" />
+    <Compile Include="AutoMapper\MappingProfile.cs" />
     <Compile Include="BLL\CourseBLL.cs" />
     <Compile Include="BLL\CourseStudentBLL.cs" />
     <Compile Include="BLL\LoginBLL.cs" />
@@ -172,6 +172,7 @@
     <Compile Include="Entities\CourseStudent.cs" />
     <Compile Include="Entities\Login.cs" />
     <Compile Include="Entities\Student.cs" />
+    <Compile Include="Enum\LoginType.cs" />
     <Compile Include="Filters\AccessAutorization.cs" />
     <Compile Include="Filters\AutorizationFilterAttribute.cs" />
     <Compile Include="Filters\SessionManager.cs" />
@@ -182,7 +183,14 @@
     <Compile Include="Migrations\201903301614128_InitialDatabase.Designer.cs">
       <DependentUpon>201903301614128_InitialDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903310945292_IncludedColumnNumberVacancies.cs" />
+    <Compile Include="Migrations\201903310945292_IncludedColumnNumberVacancies.Designer.cs">
+      <DependentUpon>201903310945292_IncludedColumnNumberVacancies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Login\CreateLoginVM.cs" />
+    <Compile Include="Models\Login\LoginBaseVM.cs" />
+    <Compile Include="Models\StudentsCourses\LinkCourseManyStudents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CourseRepository.cs" />
     <Compile Include="Repositories\CourseStudentRepository.cs" />
@@ -209,6 +217,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\CoursesStudents\LinkCourseManyStudents.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -220,6 +229,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\login-theme.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Utils\Utils.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -245,10 +255,12 @@
     <Content Include="Views\Courses\Edit.cshtml" />
     <Content Include="Views\Courses\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\CoursesStudents\View.cshtml" />
+    <Content Include="Views\CoursesStudents\LinkCourseManyStudents.cshtml" />
+    <Content Include="Views\Login\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\StudentsCourses\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -266,6 +278,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903301614128_InitialDatabase.resx">
       <DependentUpon>201903301614128_InitialDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903310945292_IncludedColumnNumberVacancies.resx">
+      <DependentUpon>201903310945292_IncludedColumnNumberVacancies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
