@@ -5,7 +5,7 @@ namespace School_Project.Models
 {
     public class StudentVM
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "First Name")]
         [StringLength(40, MinimumLength = 2)]

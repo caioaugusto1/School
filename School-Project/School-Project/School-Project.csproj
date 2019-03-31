@@ -254,10 +254,8 @@
     <Content Include="Views\Courses\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\CoursesStudents\View.cshtml" />
-    <Content Include="Views\CoursesStudents\LinkCourseManyStudents.cshtml" />
     <Content Include="Views\Login\Create.cshtml" />
     <Content Include="Views\CoursesStudents\ListStudentsByCourse.cshtml" />
-    <Content Include="Views\CoursesStudents\ListStudentsAvaliable.cshtml" />
     <Content Include="Views\CoursesStudents\ListCoursesAvaliableByStudent.cshtml" />
   </ItemGroup>
   <ItemGroup>

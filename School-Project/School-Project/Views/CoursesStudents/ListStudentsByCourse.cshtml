@@ -40,8 +40,14 @@
                 @Html.DisplayFor(modelItem => item.Address1)
             </td>
             <td>
-                <button type="button" class="btn btn-success">Included</button>
-                <button type="button" class="btn btn-danger" onclick="linkCourseManyStudents.includedStudentOneCourse(@Model.IdCourse, @item.Id)">Remove</button>
+                @if (item.StudentIncluedInCourse)
+                {
+                    <button type="button" class="btn btn-success" onclick="coursesStudents.includedCourseOneStudent('@item.Id', '@Model.IdCourse')">Sing in</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-danger" onclick="coursesStudents.removeCourseOneStudent('@item.Id', '@Model.IdCourse')">Remove</button>
+                }
             </td>
         </tr>
     }
@@ -49,3 +55,12 @@
 
 <script type="text/javascript" src="~/Scripts/Utils/Utils.js"></script>
 <script type="text/javascript" src="~/Scripts/CoursesStudents/LinkCourseManyStudents.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+        Util();
+        coursesStudents();
+    });
+
+</script>

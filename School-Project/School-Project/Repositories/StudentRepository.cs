@@ -14,7 +14,7 @@ namespace School_Project.Repositories
 
         public List<Student> GetAllAvaliable()
         {
-            return (_schoolDBContext.Student.Where(c => c.Courses.Count < 6)).ToList();
+            return (_schoolDBContext.Student.Where(c => c.Courses.Count < 5)).ToList();
         }
     }
 }

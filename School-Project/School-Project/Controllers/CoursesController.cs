@@ -26,7 +26,7 @@ namespace School_Project.Controllers
         // GET: Courses
         public ActionResult Index()
         {
-            var courses = _courseBLL.ListAll();
+            var courses = _courseBLL.GetAll();
 
             return View(courses);
         }

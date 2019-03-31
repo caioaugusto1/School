@@ -1,6 +1,7 @@
 ﻿using School_Project.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace School_Project.Models.StudentsCourses
 {
@@ -18,7 +19,12 @@ namespace School_Project.Models.StudentsCourses
 
         public string NumberVacancies { get; set; }
 
-        public List<StudentVM> Students { get; set; }
+        public List<CStudentVM> Students { get; set; }
+
+        public class CStudentVM : StudentVM
+        {
+            public bool StudentIncluedInCourse { get; set; }
+        }
 
         public ListCourseManyStudentsVM(Course course)
         {
@@ -28,16 +34,18 @@ namespace School_Project.Models.StudentsCourses
             EndDate = course.EndDate.ToString("dd/MM/yyyy");
             NumberVacancies = course.NumberVacancies.ToString();
 
-            Students = new List<StudentVM>();
+            Students = new List<CStudentVM>();
 
             foreach (var courseStudent in course.Students)
             {
-                StudentVM studentVM = new StudentVM();
+                CStudentVM studentVM = new CStudentVM();
 
+                studentVM.Id = courseStudent.Id;
                 studentVM.FirstName = courseStudent.FirstName;
                 studentVM.SurName = courseStudent.SurName;
                 studentVM.DOB = courseStudent.DOB.ToString();
                 studentVM.Gender = courseStudent.Gender;
+                studentVM.StudentIncluedInCourse = course.Students.Any(sc => sc.Id == courseStudent.Id) ? false : true;
 
                 Students.Add(studentVM);
             }
@@ -51,16 +59,18 @@ namespace School_Project.Models.StudentsCourses
             EndDate = course.EndDate.ToString("dd/MM/yyyy");
             NumberVacancies = course.NumberVacancies.ToString();
 
-            Students = new List<StudentVM>();
+            Students = new List<CStudentVM>();
 
             foreach (var student in students)
             {
-                StudentVM studentVM = new StudentVM();
+                CStudentVM studentVM = new CStudentVM();
 
+                studentVM.Id = student.Id;
                 studentVM.FirstName = student.FirstName;
                 studentVM.SurName = student.SurName;
                 studentVM.DOB = student.DOB.ToString();
                 studentVM.Gender = student.Gender;
+                studentVM.StudentIncluedInCourse = student.Courses.Any(sc => sc.Id == course.Id) ? false : true;
 
                 Students.Add(studentVM);
             }

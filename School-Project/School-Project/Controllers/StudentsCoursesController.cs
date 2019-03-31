@@ -29,30 +29,10 @@ namespace School_Project.Controllers
             return View();
         }
 
-        public ActionResult ListStudentsByCourse(Guid id)
-        {
-            ListCourseManyStudentsVM listCourseManyStudentsVM = _courseStudentBLL.OneCourseManyStudent(id);
-
-            return View("ListStudentsByCourse", listCourseManyStudentsVM);
-        }
-
-        public ActionResult ListStudentsAvaliableIncluedInCourse(Guid idCourse)
-        {
-            Course course = _courseBLL.GetById(idCourse);
-            List<Student> students = _studantsBLL.ListStudentsAvaliable();
-
-            ListCourseManyStudentsVM listCourseManyStudentsVM = new ListCourseManyStudentsVM(course, students);
-
-            return View("ListStudentsAvaliable", listCourseManyStudentsVM);
-        }
-
-        public ActionResult ListStudantsAvaliable()
-        {
-            return View("ListStudentsAvaliable");
-        }
-
+        #region Students
         public ActionResult ListCoursesAvaliableByStudent(Guid id)
         {
+            //ok
             Student student = _studantsBLL.GetById(id);
             List<Course> courses = _courseBLL.GetCoursesAvaliable();
 
@@ -64,24 +44,67 @@ namespace School_Project.Controllers
         [HttpPost]
         public ActionResult LinkStudentToCourse(Guid idCourse, Guid idStudent)
         {
+            //ok
+            _courseStudentBLL.CreateLinkStudentToCourse(idStudent, idCourse);
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RemoveLinkStudentToCourse(Guid idCourse, Guid idStudent)
+        {
+            //ok
+            _courseStudentBLL.RemoveLinkStudentToCourse(idStudent, idCourse);
+
+            return View();
+        }
+
+        //[HttpPost]
+        //public ActionResult LinkCourseToStudent(Guid idCourse, Guid idStudent)
+        //{
+        //    Course course = _courseBLL.GetById(idCourse);
+        //    List<Student> studentsList = _studantsBLL.GetStudentsAvaliable();
+
+        //    ListCourseManyStudentsVM listCourseManyStudentsVMs = new ListCourseManyStudentsVM(course, studentsList);
+
+        //    return View("ListCourseManyStudents", listCourseManyStudentsVMs);
+        //}
+
+        #endregion
+
+
+        #region Courses
+
+        public ActionResult ListStudentsAvaliableIncluedInCourse(Guid id)
+        {
+            //ok
+            Course course = _courseBLL.GetById(id);
+            List<Student> students = _studantsBLL.GetStudentsAvaliable();
+
+            ListCourseManyStudentsVM listCourseManyStudentsVM = new ListCourseManyStudentsVM(course, students);
+
+            return View("ListStudentsByCourse", listCourseManyStudentsVM);
+        }
+
+        [HttpPost]
+        public ActionResult LinkCourseToStudent(Guid idCourse, Guid idStudent)
+        {
+            //ok
             _courseStudentBLL.CreateLinkCourseToStudent(idStudent, idCourse);
 
             return View();
         }
 
         [HttpPost]
-        public ActionResult RemoveLonkStudentToCourse(Guid idCourse, Guid idStudent)
+        public ActionResult RemoveLinkCourseToStudent(Guid idCourse, Guid idStudent)
         {
+            //ok
             _courseStudentBLL.RemoveLinkCourseToStudent(idStudent, idCourse);
 
             return View();
         }
 
-        [HttpPost]
-        public ActionResult LinkCourseManyStudents(Guid idCourse, Guid idStudent)
-        {
-            return View();
-        }
+        #endregion
 
         // GET: CourseStudent/Details/5
         public ActionResult Details(int id)

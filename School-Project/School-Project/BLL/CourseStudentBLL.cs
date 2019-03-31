@@ -38,7 +38,7 @@ namespace School_Project.BLL
             return linkCourseManyStudentsVM;
         }
 
-        public bool CreateLinkCourseToStudent(Guid idStudent, Guid idCourse)
+        public bool CreateLinkStudentToCourse(Guid idStudent, Guid idCourse)
         {
             Course course = _courseRepository.GetById(idCourse);
             Student student = _studentRepository.GetById(idStudent);
@@ -56,7 +56,7 @@ namespace School_Project.BLL
             return true;
         }
 
-        public bool RemoveLinkCourseToStudent(Guid idStudent, Guid idCourse)
+        public bool RemoveLinkStudentToCourse(Guid idStudent, Guid idCourse)
         {
             Course course = _courseRepository.GetById(idCourse);
             Student student = _studentRepository.GetById(idStudent);
@@ -67,6 +67,39 @@ namespace School_Project.BLL
             course.Students.Remove(student);
 
             _courseRepository.Update(course, idCourse);
+
+            return true;
+        }
+
+        public bool CreateLinkCourseToStudent(Guid idStudent, Guid idCourse)
+        {
+            Course course = _courseRepository.GetById(idCourse);
+            Student student = _studentRepository.GetById(idStudent);
+
+            if (course == null || student == null)
+                return false;
+
+            if (student.Courses.Count >= 5)
+                return false;
+
+            student.Courses.Add(course);
+
+            _studentRepository.Update(student, idStudent);
+
+            return true;
+        }
+
+        public bool RemoveLinkCourseToStudent(Guid idStudent, Guid idCourse)
+        {
+            Course course = _courseRepository.GetById(idCourse);
+            Student student = _studentRepository.GetById(idStudent);
+
+            if (course == null || student == null)
+                return false;
+
+            student.Courses.Remove(course);
+
+            _studentRepository.Update(student, idStudent);
 
             return true;
         }

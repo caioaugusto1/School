@@ -25,9 +25,9 @@ namespace School_Project.BLL
             return _studentRepository.GetAll();
         }
 
-        public List<Student> ListStudentsAvaliable()
+        public List<Student> GetStudentsAvaliable()
         {
-            return _studentRepository.GetAll();
+            return _studentRepository.GetAllAvaliable();
         }
 
         public Student GetById(Guid id)

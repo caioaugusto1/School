@@ -21,7 +21,7 @@ namespace School_Project.BLL
             _courseRepository.Insert(course);
         }
         
-        public List<Course> ListAll()
+        public List<Course> GetAll()
         {
             return _courseRepository.GetAll();
         }
