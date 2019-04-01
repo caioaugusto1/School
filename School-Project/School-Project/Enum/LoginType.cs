@@ -1,4 +1,4 @@
-﻿namespace School_Project.Enum
+﻿namespace School_Project.Enums
 {
     public enum LoginType
     {

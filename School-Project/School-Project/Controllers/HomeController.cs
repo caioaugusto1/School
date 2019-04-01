@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using School_Project.Filters;
 using System.Web.Mvc;
 
 namespace School_Project.Controllers
 {
+    [AutorizationFilter]
     public class HomeController : Controller
     {
         public ActionResult Index()

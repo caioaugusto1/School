@@ -98,3 +98,4 @@ C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\b
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School_Project.Migrations.InitialDatabase.resources
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csproj.GenerateResource.cache
 C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School-Project.csprojAssemblyReference.cache
+C:\Users\Caio's PC\Documents\Repositories\School\School-Project\School-Project\obj\Debug\School_Project.Migrations.ChangeColumnTypeVarchar.resources

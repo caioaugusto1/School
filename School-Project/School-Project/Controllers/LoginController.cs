@@ -41,7 +41,7 @@ namespace School_Project.Controllers
         {
             Session.Abandon();
             Session.RemoveAll();
-            return View("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Login/Create

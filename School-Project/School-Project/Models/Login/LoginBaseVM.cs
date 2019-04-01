@@ -1,4 +1,4 @@
-﻿using School_Project.Enum;
+﻿using School_Project.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 

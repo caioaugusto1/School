@@ -1,5 +1,6 @@
 ﻿using School_Project.BLL;
 using School_Project.Entities;
+using School_Project.Filters;
 using School_Project.Models.StudentsCourses;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace School_Project.Controllers
 {
+    [AutorizationFilter]
     public class CoursesStudentsController : Controller
     {
         private CourseStudentBLL _courseStudentBLL;

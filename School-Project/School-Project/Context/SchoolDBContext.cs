@@ -15,9 +15,10 @@ namespace School_Project.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new LoginEntityConfiguration());
-            modelBuilder.Entity<Course>().HasMany(x => x.Students);
-            //modelBuilder.Configurations.Add(new StudentEntityConfiguration());
-            modelBuilder.Entity<Student>().HasMany(x => x.Courses);
+            modelBuilder.Configurations.Add(new StudentEntityConfiguration());
+            modelBuilder.Configurations.Add(new CourseEntityConfiguration());
+            //modelBuilder.Entity<Course>().HasMany(x => x.Students);
+            //modelBuilder.Entity<Student>().HasMany(x => x.Courses);
 
             base.OnModelCreating(modelBuilder);
         }

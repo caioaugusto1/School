@@ -28,7 +28,7 @@ namespace School_Project.BLL
 
             SessionManager.AccountLogin = login;
             System.Web.Security.FormsAuthentication.SetAuthCookie(login.UserName, true);
-            
+
             return login;
         }
 
@@ -39,13 +39,13 @@ namespace School_Project.BLL
             if (validationLogin != null)
                 return null;
 
-            Login login = Mapper.Map<CreateLoginVM, Login>(newLogin);
-
+            Login login = new Login(newLogin);
+            
             login.Password = CriptoMd5(login.Password);
 
             _loginRepository.Insert(login);
 
-            return new Login();
+            return login;
         }
 
         private string CriptoMd5(string password)

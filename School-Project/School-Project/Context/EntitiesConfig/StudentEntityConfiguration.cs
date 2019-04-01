@@ -7,19 +7,32 @@ namespace School_Project.Context.EntitiesConfig
     {
         public StudentEntityConfiguration()
         {
-            ToTable("Student");
+            ToTable("Students");
 
             HasKey(s => s.Id);
 
             Property(p => p.FirstName)
-                    .HasMaxLength(40);
+                    .HasMaxLength(40)
+                    .HasColumnType("varchar");
 
             Property(p => p.SurName)
-                    .HasMaxLength(40);
+                    .HasMaxLength(40)
+                    .HasColumnType("varchar");
+
+            Property(p => p.Address1)
+                    .HasMaxLength(100)
+                    .HasColumnType("varchar");
+
+            Property(p => p.Address2)
+                    .HasMaxLength(100)
+                    .HasColumnType("varchar");
+
+            Property(p => p.Address3)
+                    .HasMaxLength(100)
+                    .HasColumnType("varchar");
 
             Property(p => p.DOB)
                     .HasColumnName("DOB")
-                    .HasColumnOrder(3)
                     .HasColumnType("datetime2");
 
             HasMany<Course>(s => s.Courses)

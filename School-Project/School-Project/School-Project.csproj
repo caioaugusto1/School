@@ -160,6 +160,7 @@
     <Compile Include="BLL\CourseStudentBLL.cs" />
     <Compile Include="BLL\LoginBLL.cs" />
     <Compile Include="BLL\StudentBLL.cs" />
+    <Compile Include="Context\EntitiesConfig\CourseEntityConfiguration.cs" />
     <Compile Include="Context\EntitiesConfig\LoginEntityConfiguration.cs" />
     <Compile Include="Context\EntitiesConfig\StudentEntityConfiguration.cs" />
     <Compile Include="Context\SchoolDBContext.cs" />
@@ -182,6 +183,10 @@
     <Compile Include="Migrations\201903311528286_InitialDatabase.cs" />
     <Compile Include="Migrations\201903311528286_InitialDatabase.Designer.cs">
       <DependentUpon>201903311528286_InitialDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904011145374_ChangeColumnTypeVarchar.cs" />
+    <Compile Include="Migrations\201904011145374_ChangeColumnTypeVarchar.Designer.cs">
+      <DependentUpon>201904011145374_ChangeColumnTypeVarchar.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Courses\CourseVM.cs" />
@@ -281,6 +286,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903311528286_InitialDatabase.resx">
       <DependentUpon>201903311528286_InitialDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904011145374_ChangeColumnTypeVarchar.resx">
+      <DependentUpon>201904011145374_ChangeColumnTypeVarchar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,7 +1,7 @@
 ﻿using School_Project.BLL;
 using School_Project.Context;
 using School_Project.Entities;
-using School_Project.Repositories;
+using School_Project.Filters;
 using System;
 using System.Data.Entity;
 using System.Net;
@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace School_Project.Controllers
 {
+    [AutorizationFilter]
     public class StudentsController : Controller
     {
         private StudentBLL _studentBLL;
