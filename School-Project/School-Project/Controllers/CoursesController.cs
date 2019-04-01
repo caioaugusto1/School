@@ -56,7 +56,7 @@ namespace School_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,TeacherName,StartDate,EndDate")] Course course)
+        public ActionResult Create([Bind(Include = "Id,Name,TeacherName,NumberVacancies,StartDate,EndDate")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace School_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,TeacherName,StartDate,EndDate")] Course course)
+        public ActionResult Edit([Bind(Include = "Id,Name,TeacherName,NumberVacancies,StartDate,EndDate")] Course course)
         {
             if (ModelState.IsValid)
             {

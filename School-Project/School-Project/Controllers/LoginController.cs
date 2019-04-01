@@ -23,10 +23,15 @@ namespace School_Project.Controllers
 
         public ActionResult SingIn(string username, string password)
         {
+            ViewBag.Error = false;
+
             Login login = _loginBLL.SingIn(username, password);
 
             if (login == null)
-                throw new Exception("Incorret Username or password");
+            {
+                ViewBag.Error = true;
+                return View("Index");
+            }
 
             return RedirectToAction("Index", "Home");
         }

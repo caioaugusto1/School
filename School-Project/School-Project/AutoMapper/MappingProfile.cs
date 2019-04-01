@@ -12,7 +12,7 @@ namespace School_Project.AutoMapper
                 .ForMember(entity => entity.Id, map => map.MapFrom(vm => vm.Id))
                 .ForMember(entity => entity.UserName, map => map.MapFrom(vm => vm.UserName))
                 .ForMember(entity => entity.Password, map => map.MapFrom(vm => vm.Password))
-                .ForMember(entity => entity.Type, map => map.MapFrom(vm => vm.Type))
+                .ForMember(entity => entity.Type, map => map .MapFrom(vm => vm.Type))
                 .ReverseMap();
         }
     }

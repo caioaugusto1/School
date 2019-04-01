@@ -260,6 +260,7 @@
     <Content Include="Views\Login\Create.cshtml" />
     <Content Include="Views\CoursesStudents\ListStudentsByCourse.cshtml" />
     <Content Include="Views\CoursesStudents\ListCoursesAvaliableByStudent.cshtml" />
+    <Content Include="Views\Shared\_partial\_modal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

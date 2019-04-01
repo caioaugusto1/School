@@ -4,6 +4,9 @@ using School_Project.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Web.Helpers;
+using System.Web.Mvc;
 
 namespace School_Project.BLL
 {
@@ -38,70 +41,89 @@ namespace School_Project.BLL
             return linkCourseManyStudentsVM;
         }
 
-        public bool CreateLinkStudentToCourse(Guid idStudent, Guid idCourse)
+        public HttpStatusCode CreateLinkStudentToCourse(Guid idStudent, Guid idCourse)
         {
-            Course course = _courseRepository.GetById(idCourse);
+            Course courseSelected = _courseRepository.GetById(idCourse);
             Student student = _studentRepository.GetById(idStudent);
 
-            if (course == null || student == null)
-                return false;
+            if (courseSelected == null || student == null)
+                return HttpStatusCode.NotFound;
 
             if (student.Courses.Count >= 5)
-                return false;
+                return HttpStatusCode.Conflict;
 
-            course.Students.Add(student);
+            if (courseSelected.Students.Count >= courseSelected.NumberVacancies)
+                return HttpStatusCode.Conflict;
 
-            _courseRepository.Update(course, idCourse);
+            foreach (var course in student.Courses)
+            {
+                if (courseSelected.StartDate >= course.StartDate || courseSelected.EndDate <= course.EndDate)
+                    return HttpStatusCode.Conflict;
+            }
 
-            return true;
+
+            courseSelected.Students.Add(student);
+
+            _courseRepository.Update(courseSelected, idCourse);
+
+            return HttpStatusCode.NoContent;
         }
 
-        public bool RemoveLinkStudentToCourse(Guid idStudent, Guid idCourse)
+        public HttpStatusCode RemoveLinkStudentToCourse(Guid idStudent, Guid idCourse)
         {
             Course course = _courseRepository.GetById(idCourse);
             Student student = _studentRepository.GetById(idStudent);
 
             if (course == null || student == null)
-                return false;
+                return HttpStatusCode.NotFound;
 
             course.Students.Remove(student);
 
             _courseRepository.Update(course, idCourse);
 
-            return true;
+            return HttpStatusCode.NoContent;
         }
 
-        public bool CreateLinkCourseToStudent(Guid idStudent, Guid idCourse)
+        public HttpStatusCode CreateLinkCourseToStudent(Guid idStudent, Guid idCourse)
         {
-            Course course = _courseRepository.GetById(idCourse);
+            Course courseSelected = _courseRepository.GetById(idCourse);
             Student student = _studentRepository.GetById(idStudent);
 
-            if (course == null || student == null)
-                return false;
+            if (courseSelected == null || student == null)
+                return HttpStatusCode.NotFound;
 
             if (student.Courses.Count >= 5)
-                return false;
+                return HttpStatusCode.Conflict;
 
-            student.Courses.Add(course);
+            if (courseSelected.Students.Count >= courseSelected.NumberVacancies)
+                return HttpStatusCode.Conflict;
+
+            foreach (var course in student.Courses)
+            {
+                if (courseSelected.StartDate >= course.StartDate || courseSelected.EndDate <= course.EndDate)
+                    return HttpStatusCode.Conflict;
+            }
+
+            student.Courses.Add(courseSelected);
 
             _studentRepository.Update(student, idStudent);
 
-            return true;
+            return HttpStatusCode.NoContent;
         }
 
-        public bool RemoveLinkCourseToStudent(Guid idStudent, Guid idCourse)
+        public HttpStatusCode RemoveLinkCourseToStudent(Guid idStudent, Guid idCourse)
         {
             Course course = _courseRepository.GetById(idCourse);
             Student student = _studentRepository.GetById(idStudent);
 
             if (course == null || student == null)
-                return false;
+                return HttpStatusCode.NotFound;
 
             student.Courses.Remove(course);
 
             _studentRepository.Update(student, idStudent);
 
-            return true;
+            return HttpStatusCode.NoContent;
         }
     }
 }

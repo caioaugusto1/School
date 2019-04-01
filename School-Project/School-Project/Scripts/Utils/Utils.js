@@ -11,7 +11,8 @@
             success: function (data) {
                 callbackSuccess(data);
             }, error: function (request, status, error) {
-
+                $('#messageErro').html(request.responseJSON.message);
+                $('#modalError').modal();
             }
         });
     };

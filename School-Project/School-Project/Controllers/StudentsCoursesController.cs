@@ -3,6 +3,7 @@ using School_Project.Entities;
 using School_Project.Models.StudentsCourses;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Web.Mvc;
 
 namespace School_Project.Controllers
@@ -15,7 +16,7 @@ namespace School_Project.Controllers
 
         private StudentBLL _studantsBLL;
 
-        public CoursesStudentsController(CourseStudentBLL courseStudentBLL, 
+        public CoursesStudentsController(CourseStudentBLL courseStudentBLL,
             CourseBLL courseBLL, StudentBLL studantsBLL)
         {
             _courseStudentBLL = courseStudentBLL;
@@ -42,21 +43,38 @@ namespace School_Project.Controllers
         }
 
         [HttpPost]
-        public ActionResult LinkStudentToCourse(Guid idCourse, Guid idStudent)
+        public JsonResult LinkStudentToCourse(Guid idCourse, Guid idStudent)
         {
-            //ok
-            _courseStudentBLL.CreateLinkStudentToCourse(idStudent, idCourse);
+            HttpStatusCode statusCode = _courseStudentBLL.CreateLinkStudentToCourse(idStudent, idCourse);
 
-            return View();
+            if (statusCode == HttpStatusCode.NotFound)
+            {
+                Response.StatusCode = (int)HttpStatusCode.NotFound;
+                return Json(new { message = "Student or Course not found" }, JsonRequestBehavior.AllowGet);
+            }
+            else if (statusCode == HttpStatusCode.Conflict)
+            {
+                Response.StatusCode = (int)HttpStatusCode.Conflict;
+                return Json(new { message = "Student enrolled in many courses" }, JsonRequestBehavior.AllowGet);
+            }
+
+            Response.StatusCode = (int)HttpStatusCode.NoContent;
+            return Json(new { message = "Success" }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public ActionResult RemoveLinkStudentToCourse(Guid idCourse, Guid idStudent)
+        public JsonResult RemoveLinkStudentToCourse(Guid idCourse, Guid idStudent)
         {
-            //ok
-            _courseStudentBLL.RemoveLinkStudentToCourse(idStudent, idCourse);
+            HttpStatusCode statusCode = _courseStudentBLL.RemoveLinkStudentToCourse(idStudent, idCourse);
 
-            return View();
+            if (statusCode == HttpStatusCode.NotFound)
+            {
+                Response.StatusCode = (int)HttpStatusCode.NotFound;
+                return Json(new { message = "Student or Course not found" }, JsonRequestBehavior.AllowGet);
+            }
+
+            Response.StatusCode = (int)HttpStatusCode.NoContent;
+            return Json(new { message = "Success" }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion
@@ -78,18 +96,37 @@ namespace School_Project.Controllers
         public ActionResult LinkCourseToStudent(Guid idCourse, Guid idStudent)
         {
             //ok
-            _courseStudentBLL.CreateLinkCourseToStudent(idStudent, idCourse);
+            HttpStatusCode statusCode = _courseStudentBLL.CreateLinkCourseToStudent(idStudent, idCourse);
 
-            return View();
+            if (statusCode == HttpStatusCode.NotFound)
+            {
+                Response.StatusCode = (int)HttpStatusCode.NotFound;
+                return Json(new { message = "Student or Course not found" }, JsonRequestBehavior.AllowGet);
+            }
+            else if (statusCode == HttpStatusCode.Conflict)
+            {
+                Response.StatusCode = (int)HttpStatusCode.Conflict;
+                return Json(new { message = "Student enrolled in many courses" }, JsonRequestBehavior.AllowGet);
+            }
+
+            Response.StatusCode = (int)HttpStatusCode.NoContent;
+            return Json(new { message = "Success" }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         public ActionResult RemoveLinkCourseToStudent(Guid idCourse, Guid idStudent)
         {
             //ok
-            _courseStudentBLL.RemoveLinkCourseToStudent(idStudent, idCourse);
+            HttpStatusCode statusCode = _courseStudentBLL.RemoveLinkCourseToStudent(idStudent, idCourse);
 
-            return View();
+            if (statusCode == HttpStatusCode.NotFound)
+            {
+                Response.StatusCode = (int)HttpStatusCode.NotFound;
+                return Json(new { message = "Student or Course not found" }, JsonRequestBehavior.AllowGet);
+            }
+
+            Response.StatusCode = (int)HttpStatusCode.NoContent;
+            return Json(new { message = "Success" }, JsonRequestBehavior.AllowGet);
         }
 
         #endregion

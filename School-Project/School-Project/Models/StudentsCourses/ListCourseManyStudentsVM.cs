@@ -29,6 +29,7 @@ namespace School_Project.Models.StudentsCourses
         public ListCourseManyStudentsVM(Course course)
         {
             IdCourse = course.Id;
+            Name = course.Name;
             TeacherName = course.TeacherName;
             StartDate = course.StartDate.ToString("dd/MM/yyyy");
             EndDate = course.EndDate.ToString("dd/MM/yyyy");
@@ -54,6 +55,7 @@ namespace School_Project.Models.StudentsCourses
         public ListCourseManyStudentsVM(Course course, List<Student> students)
         {
             IdCourse = course.Id;
+            Name = course.Name;
             TeacherName = course.TeacherName;
             StartDate = course.StartDate.ToString("dd/MM/yyyy");
             EndDate = course.EndDate.ToString("dd/MM/yyyy");
@@ -68,7 +70,7 @@ namespace School_Project.Models.StudentsCourses
                 studentVM.Id = student.Id;
                 studentVM.FirstName = student.FirstName;
                 studentVM.SurName = student.SurName;
-                studentVM.DOB = student.DOB.ToString();
+                studentVM.DOB = student.DOB.ToString("dd/MM/yyyy");
                 studentVM.Gender = student.Gender;
                 studentVM.StudentIncluedInCourse = student.Courses.Any(sc => sc.Id == course.Id) ? false : true;
 

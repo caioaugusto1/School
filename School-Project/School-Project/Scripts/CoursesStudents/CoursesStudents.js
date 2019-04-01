@@ -3,28 +3,28 @@
     //Students
     var includedStudentOneCourse = function (idStudent, idCourse) {
         Util.request("/CoursesStudents/LinkStudentToCourse", "POST", { idCourse, idStudent }, "JSON", function (data) {
-            window.location.reload();
+            location.reload()
         });
     }
 
     //Students
     var removeStudentOneCourse = function (idStudent, idCourse) {
         Util.request("/CoursesStudents/RemoveLinkStudentToCourse", "POST", { idCourse, idStudent }, "JSON", function () {
-            window.location.reload();
+            location.reload()
         });
     }
 
     //Course
     var includedCourseOneStudent = function (idStudent, idCourse) {
         Util.request("/CoursesStudents/LinkCourseToStudent", "POST", { idCourse, idStudent }, "JSON", function (data) {
-            window.location.reload();
+            location.reload()
         });
     }
 
     //Course
     var removeCourseOneStudent = function (idStudent, idCourse) {
         Util.request("/CoursesStudents/RemoveLinkCourseToStudent", "POST", { idCourse, idStudent }, "JSON", function (data) {
-            window.location.reload();
+            location.reload()
         });
     }
 

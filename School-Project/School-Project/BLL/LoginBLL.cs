@@ -24,7 +24,7 @@ namespace School_Project.BLL
             Login login = _loginRepository.SingIn(username, criptoPassword);
 
             if (login == null)
-                throw new Exception("Incorret Username or password");
+                return null;
 
             SessionManager.AccountLogin = login;
             System.Web.Security.FormsAuthentication.SetAuthCookie(login.UserName, true);

@@ -1,12 +1,17 @@
 ﻿@model School_Project.Models.StudentsCourses.ListCoursesAvaliableVM
 
 
-<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+@Html.Partial("~/Views/Shared/_partial/_modal.cshtml")
 
+<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+<br />
+
+<strong>Student: </strong>@Model.FirstName @Model.SurName
 <br />
 <br />
 
 <table id="datatable" class="display" style="width:100%">
+
     <thead>
         <tr>
             <th>
@@ -76,7 +81,8 @@
     </tfoot>
 </table>
 
-<a href="/Students/Index" class="btn-warning btn-sm">< Back to List</a>
+
+@*<a href="~/Views/Shared/_partial/_modal.cshtml">~/Views/Shared/_partial/_modal.cshtml</a>*@
 
 @section scripts{
 

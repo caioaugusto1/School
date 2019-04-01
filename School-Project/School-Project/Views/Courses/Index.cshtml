@@ -18,6 +18,9 @@
                 Teacher Name
             </th>
             <th>
+                Vacancies Number
+            </th>
+            <th>
                 Start Date
             </th>
             <th>
@@ -38,6 +41,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TeacherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberVacancies)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.StartDate)
@@ -61,6 +67,7 @@
             <th>Teacher Name</th>
             <th>Start Date</th>
             <th>End Date</th>
+            <th>Vacancies Number</th>
             <th>Actions</th>
         </tr>
     </tfoot>
