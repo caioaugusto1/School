@@ -1,4 +1,6 @@
-# School
+# School Project web
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/caioaugusto1/School.git)
 
 ### Development
 
@@ -6,3 +8,32 @@
 * [FE] - HTML5, CSS3, BOOTSTRAP, AJAX AND JQUERY
 * [DATABASE] - SQL SERVER
 
+
+### Installation
+
+Requires Visual Studio - 2017 - to run
+Requires Microsoft SQL Server Management Studio 
+
+Change <connectionstring in file `${web.config}` after clone git repository
+
+Run Migrations command to execute database.
+
+```sh
+$ enable-migrations
+$ add-migration
+$ update-database
+```
+
+### Rules Project
+
+ - Write MORE Tests
+ - Add Night Mode
+ 
+ 
+ License
+----
+
+
+**Free Software, Hell Yeah!**
+
+*Caio Augusto*
