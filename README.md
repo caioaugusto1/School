@@ -5,6 +5,7 @@
 ### Development
 
 * [BE] - .NET MVC5
+* [BE] - ENTITY FRAMEWORK
 * [FE] - HTML5, CSS3, BOOTSTRAP, AJAX AND JQUERY
 * [DATABASE] - SQL SERVER
 
@@ -26,8 +27,8 @@ $ update-database
 
 ### Rules Project
 
- - Write MORE Tests
- - Add Night Mode
+ - Write
+ - 
  
  
  License
